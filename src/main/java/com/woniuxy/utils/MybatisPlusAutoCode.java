@@ -1,14 +1,18 @@
 package com.woniuxy.utils;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+
+import java.util.ArrayList;
 
 //AutoGenerator 是 MyBatis-Plus 的代码生成器，
 // 通过 AutoGenerator 可以快速生成 Entity、Mapper、Mapper XML、Service、Controller 等各个模块的代码
@@ -37,7 +41,7 @@ public class MybatisPlusAutoCode {
         //2、设置数据源:
         // https://baomidou.com/config/generator-config.html#%E6%95%B0%E6%8D%AE%E6%BA%90-datasourceconfig-%E9%85%8D%E7%BD%AE
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://47.108.133.10:3306/db_store?characterEncoding=utf-8");
+        dsc.setUrl("jdbc:mysql://47.108.133.10:3306/db_woniupark?characterEncoding=utf-8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
@@ -60,23 +64,23 @@ public class MybatisPlusAutoCode {
         StrategyConfig strategy = new StrategyConfig();
         // 设置要生成的实体类对应映射的表名
 //        strategy.setInclude("t_user","city","county","countrylanguage");
-        strategy.setInclude("t_goods");
+        strategy.setInclude("t_order_info");
         strategy.setTablePrefix("t_");                       //去除表名前缀
         //设置表名生成策略，下划线转驼峰
         strategy.setNaming(NamingStrategy.underline_to_camel);
         //设置列名生成策略，下划线转驼峰
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);                 //自动lombok；
-//        strategy.setLogicDeleteFieldName("deleted");         //设置使用逻辑删除策略的属性名
+        strategy.setLogicDeleteFieldName("deleted");         //设置使用逻辑删除策略的属性名
         // 自动填充配置 TableFill
-//        TableFill gmtCreate = new TableFill("gmt_create", FieldFill.INSERT);
+        TableFill createTime = new TableFill("create_time", FieldFill.INSERT);
 //        TableFill gmtModified = new TableFill("gmt_modified", FieldFill.INSERT_UPDATE);
-//        ArrayList<TableFill> tableFills = new ArrayList<>();
-//        tableFills.add(gmtCreate);
+        ArrayList<TableFill> tableFills = new ArrayList<>();
+        tableFills.add(createTime);
 //        tableFills.add(gmtModified);
-//        strategy.setTableFillList(tableFills);
+        strategy.setTableFillList(tableFills);
 
-//        strategy.setVersionFieldName("version");             // 乐观锁
+        strategy.setVersionFieldName("version");             // 乐观锁
         strategy.setRestControllerStyle(true);               //生成 @RestController 控制器
         strategy.setControllerMappingHyphenStyle(true);      //驼峰转连字符--->localhost:8080/hello_id_2
 
