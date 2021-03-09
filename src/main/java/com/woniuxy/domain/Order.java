@@ -28,7 +28,7 @@ public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
 
         @ApiModelProperty(value = "订单id")
-        @TableId(value = "order_id", type = IdType.ID_WORKER)
+        @TableId(value = "order_id", type = IdType.AUTO)
     private Integer orderId;
 
         @ApiModelProperty(value = "车位id")
@@ -40,5 +40,7 @@ public class Order implements Serializable {
         @ApiModelProperty(value = "订单总价")
         private Double total;
 
+        @ApiModelProperty(value = "用户的id")
+        private Integer userId;
 
 }

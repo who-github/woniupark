@@ -28,7 +28,7 @@ public class Admin implements Serializable {
     private static final long serialVersionUID = 1L;
 
         @ApiModelProperty(value = "管理员表-id")
-        @TableId(value = "admin_id", type = IdType.ID_WORKER)
+        @TableId(value = "admin_id", type = IdType.AUTO)
     private Integer adminId;
 
     private String name;

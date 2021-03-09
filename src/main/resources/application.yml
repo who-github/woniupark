@@ -10,3 +10,6 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#配置支付宝
+alipay:
+  app_id: 2021000116666737

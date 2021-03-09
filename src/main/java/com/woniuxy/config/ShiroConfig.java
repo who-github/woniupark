@@ -1,5 +1,6 @@
 package com.woniuxy.config;
 
+import com.woniuxy.filter.JWTFilter;
 import com.woniuxy.realm.ConstomerRealm;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.codec.Base64;
@@ -11,7 +12,9 @@ import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 //shiro的配置类：
@@ -77,21 +80,21 @@ public class ShiroConfig {
 //        设过滤器的过滤信息：
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
 
-//        linked为有序,首先添加白名单,
-        filterChainDefinitionMap.put("/css/**","anon");
-        filterChainDefinitionMap.put("/js/**","anon");
-
-        filterChainDefinitionMap.put("/user/login","anon");
-        filterChainDefinitionMap.put("/user/register","anon");
-        filterChainDefinitionMap.put("/page/register.html","anon");
+        // 获取过滤器的集合：
+        Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
+        filters.put("jwt",new JWTFilter());
+////
+////        filterChainDefinitionMap.put("/user/login","anon");
+////        filterChainDefinitionMap.put("/user/register","anon");
+////        filterChainDefinitionMap.put("/page/register.html","anon");
+        // 测试的时候使用：正式使用时删除
+        filterChainDefinitionMap.put("/**","anon");
 //        注销路径
         filterChainDefinitionMap.put("/user/logout","logout");
 //        目前还不清楚前后端分离之后，怎么拦截，所以直接全部放行
-        filterChainDefinitionMap.put("/**","user");
+//        filterChainDefinitionMap.put("/**","jwt");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-//        设置阻拦之后跳转的界面
-        shiroFilterFactoryBean.setLoginUrl("/page/login.html");
 
         shiroFilterFactoryBean.setSecurityManager(defaultWebSecurityManager);
 

@@ -33,7 +33,7 @@ public class OrderInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
         @ApiModelProperty(value = "订单详细id")
-        @TableId(value = "order_info_id", type = IdType.ID_WORKER)
+        @TableId(value = "order_info_id", type = IdType.AUTO)
     private Integer orderInfoId;
 
         @ApiModelProperty(value = "订单状态")
@@ -55,7 +55,7 @@ public class OrderInfo implements Serializable {
         private Date payTime;
 
         @ApiModelProperty(value = "订单号")
-        private Integer orderNumber;
+        private String orderNumber;
 
         @ApiModelProperty(value = "订单总价")
         private Double total;
