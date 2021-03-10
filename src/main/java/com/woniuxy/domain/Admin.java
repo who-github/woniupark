@@ -47,5 +47,6 @@ public class Admin implements Serializable {
 
     private Double income;
 
+    private double proportion;
 
 }
