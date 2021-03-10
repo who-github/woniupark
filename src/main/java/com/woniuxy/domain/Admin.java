@@ -37,5 +37,6 @@ public class Admin implements Serializable {
 
     private String password;
 
+    private double proportion;
 
 }

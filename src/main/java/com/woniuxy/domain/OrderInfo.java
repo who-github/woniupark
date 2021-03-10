@@ -33,7 +33,6 @@ public class OrderInfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
         @ApiModelProperty(value = "订单详细id")
-        @TableId(value = "order_info_id", type = IdType.ID_WORKER)
     private Integer orderInfoId;
 
         @ApiModelProperty(value = "订单状态")
