@@ -1,5 +1,8 @@
 package com.woniuxy.config;
 
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
+import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 //import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -15,17 +18,17 @@ public class MybatisPlusConfig {
         return new PaginationInterceptor();
     }
 //
-////    注册组件：乐观锁
-//    @Bean
-//    public OptimisticLockerInterceptor optimisticLockerInterceptor(){
-//        return new OptimisticLockerInterceptor();
-//    }
+//    注册组件：乐观锁
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor(){
+        return new OptimisticLockerInterceptor();
+    }
 //
-////    注册组件:逻辑删除
-//    @Bean
-//    public ISqlInjector iSqlInjector(){
-//        return new LogicSqlInjector();
-//    }
+//    注册组件:逻辑删除
+    @Bean
+    public ISqlInjector iSqlInjector(){
+        return new LogicSqlInjector();
+    }
 
     //    注册一个性能组件
 //    @Bean
