@@ -1,15 +1,16 @@
 package com.woniuxy.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -17,7 +18,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author clk
- * @since 2021-03-06
+ * @since 2021-03-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -29,7 +30,7 @@ public class Discuss implements Serializable {
     private static final long serialVersionUID = 1L;
 
         @ApiModelProperty(value = "评论id")
-        @TableId(value = "discuss_id", type = IdType.ID_WORKER)
+        @TableId(value = "discuss_id", type = IdType.AUTO)
     private Integer discussId;
 
         @ApiModelProperty(value = "用户id")

@@ -1,5 +1,6 @@
 package com.woniuxy.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -19,6 +20,7 @@ public class GetOrderVO {
     //            " oi.deleted,oi.create_time,oi.order_status,oi.pay_time,oi.order_number, " +
     private Integer deleted;
     //    create_time: '订单创建时间',
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "GMT+8")
     private Date createtime;
     //    order_status: '订单状态',
     private String orderStatus;

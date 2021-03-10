@@ -1,7 +1,7 @@
 package com.woniuxy.service;
 
-import com.woniuxy.domain.Rental;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.woniuxy.domain.Rental;
 
 /**
  * <p>

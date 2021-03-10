@@ -1,7 +1,7 @@
 package com.woniuxy.service;
 
-import com.woniuxy.domain.Discuss;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.woniuxy.domain.Discuss;
 
 /**
  * <p>

@@ -1,7 +1,7 @@
 package com.woniuxy.mapper;
 
-import com.woniuxy.domain.LicensePlate;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.woniuxy.domain.LicensePlate;
 
 /**
  * <p>

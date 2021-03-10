@@ -1,10 +1,10 @@
 package com.woniuxy.config;
 
 import com.baomidou.mybatisplus.core.injector.ISqlInjector;
-import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+//import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
+//import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -25,20 +25,20 @@ public class MybatisPlusConfig {
     }
 //
 //    注册组件:逻辑删除
-    @Bean
-    public ISqlInjector iSqlInjector(){
-        return new LogicSqlInjector();
-    }
+//    @Bean
+//    public ISqlInjector iSqlInjector(){
+//        return new LogicSqlInjector();
+//    }
 
     //    注册一个性能组件
-    @Bean
-    public PerformanceInterceptor performanceInterceptor(){
-        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
-//        sql 语句最大执行时间
-        performanceInterceptor.setMaxTime(10000);
-//        格式化sql语句查询
-        performanceInterceptor.setFormat(true);
-        return performanceInterceptor;
-    }
+//    @Bean
+//    public PerformanceInterceptor performanceInterceptor(){
+//        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+////        sql 语句最大执行时间
+//        performanceInterceptor.setMaxTime(1000000);
+////        格式化sql语句查询
+//        performanceInterceptor.setFormat(true);
+//        return performanceInterceptor;
+//    }
 
 }

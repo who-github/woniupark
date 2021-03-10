@@ -1,15 +1,16 @@
 package com.woniuxy.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -17,7 +18,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author clk
- * @since 2021-03-06
+ * @since 2021-03-10
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -28,7 +29,7 @@ public class UserInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "user_info_id", type = IdType.ID_WORKER)
+    @TableId(value = "user_info_id", type = IdType.AUTO)
     private Integer userInfoId;
 
         @ApiModelProperty(value = "关联用户表的id：t_user")
@@ -59,7 +60,8 @@ public class UserInfo implements Serializable {
 
     private String description;
 
-    private String status;
+        @ApiModelProperty(value = "保存用户是否实名状态")
+        private String status;
 
     private String head;
 
@@ -68,6 +70,10 @@ public class UserInfo implements Serializable {
     private String marriage;
 
     private Integer credit;
+
+    private String authentication;
+
+    private String identityImage;
 
 
 }

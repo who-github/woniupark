@@ -83,12 +83,27 @@ public class ShiroConfig {
         // 获取过滤器的集合：
         Map<String, Filter> filters = shiroFilterFactoryBean.getFilters();
         filters.put("jwt",new JWTFilter());
-////
-////        filterChainDefinitionMap.put("/user/login","anon");
-////        filterChainDefinitionMap.put("/user/register","anon");
-////        filterChainDefinitionMap.put("/page/register.html","anon");
-        // 测试的时候使用：正式使用时删除
-        filterChainDefinitionMap.put("/**","anon");
+
+        // 测试的时候使用：正式使用时删除（程礼堃）
+        filterChainDefinitionMap.put("/order/findPrakingByAddress","anon");
+        filterChainDefinitionMap.put("/order/payOrder","anon");
+        filterChainDefinitionMap.put("/order/updateOrder","anon");
+        filterChainDefinitionMap.put("/order/deleteOrder","anon");
+        filterChainDefinitionMap.put("/order/getAllOrder","anon");
+
+        // 王鹏的资源放行：
+        filterChainDefinitionMap.put("/parking/findParkingRecommend","anon");
+        filterChainDefinitionMap.put("/parking/findParkingByTitle","anon");
+        filterChainDefinitionMap.put("/parking/seckillParking","anon");
+
+        // 黄银发的放行
+        filterChainDefinitionMap.put("/user/login","anon");
+        filterChainDefinitionMap.put("/parking/info","anon");
+        filterChainDefinitionMap.put("/user/phone","anon");
+        filterChainDefinitionMap.put("/user/register","anon");
+        filterChainDefinitionMap.put("/user/telCode","anon");
+        filterChainDefinitionMap.put("/parking/allParking","anon");
+
 //        注销路径
         filterChainDefinitionMap.put("/user/logout","logout");
 //        目前还不清楚前后端分离之后，怎么拦截，所以直接全部放行
